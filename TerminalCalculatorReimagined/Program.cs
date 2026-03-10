@@ -17,8 +17,10 @@
 		};
 		
 		//Getting the operation
+		Console.WriteLine("Supported operations: add, subtract, multiply, divide, sqrt, pythag, sin, rng and info");
 		Console.WriteLine("Enter operation: ");
 		string operation = Console.ReadLine();
+		//We check against the list of potential operation strings. If the string is invalid we return. If not then continue the script.
 		if(!operandList.Contains(operation))
 		{
 			Console.WriteLine("Not a supported operation");
@@ -31,6 +33,7 @@
 			Console.WriteLine("This application was written by Archilux in C# based on JourneyJ012's TerminalCalculator");
 			Console.WriteLine("This software falls under GNU General Public License v3.0 (GPL)");
 			Console.WriteLine("The supported operations in this version are: add, subtract, multiply, divide, sqrt, pythag, sin and rng.");
+			Console.WriteLine("This is v1.0.0 built on 10/03/2026")
 			return;
 		}
 		
