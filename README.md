@@ -1,4 +1,4 @@
-I decided to go back to @JourneyJ012 TerminalCalculator again, this time adding some features that I thought would be nice but wouldn't fir the original project.
+I decided to go back to @JourneyJ012 TerminalCalculator again, this time adding some features that I thought would be nice but wouldn't for the original project.
 
 I have added: <br>
 - A handful of new operands <br>
@@ -14,3 +14,4 @@ Currently supported operands: <br>
 - Pythag
 - Sin
 - Rng
+- Info
