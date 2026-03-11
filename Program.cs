@@ -1,8 +1,12 @@
-﻿public class Program
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+public class Program
 {
 	public static void Main()
 	{
-		//List of strings
+		//List of strings. Idk if this is the best way to do this, but its what I went with.
 		List<string> operandList = new List<string>()
 		{
 			"add",
@@ -11,13 +15,15 @@
 			"divide",
 			"sqrt",
 			"pythag",
-			"sin",
-			"info",
 			"rng",
+			"sin",
+			"cos",
+			"tan",
+			"info",
 		};
 		
 		//Getting the operation
-		Console.WriteLine("Supported operations: add, subtract, multiply, divide, sqrt, pythag, sin, rng and info");
+		Console.WriteLine("Supported operations: add, subtract, multiply, divide, sqrt, pythag, rng, sin, cos, tan, info");
 		Console.WriteLine("Enter operation: ");
 		string operation = Console.ReadLine();
 		//We check against the list of potential operation strings. If the string is invalid we return. If not then continue the script.
@@ -32,12 +38,12 @@
 		{
 			Console.WriteLine("This application was written by Archilux in C# based on JourneyJ012's TerminalCalculator");
 			Console.WriteLine("This software falls under GNU General Public License v3.0 (GPL)");
-			Console.WriteLine("The supported operations in this version are: add, subtract, multiply, divide, sqrt, pythag, sin and rng.");
-			Console.WriteLine("This is v1.0.0 built on 10/03/2026");
+			Console.WriteLine("The supported operations in this version are: add, subtract, multiply, divide, sqrt, pythag, rng, sin, cos, tan.");
+			Console.WriteLine("This is v1.1.0 built on ??/03/2026"); //Dont be dumb and actually change this.
 			return;
 		}
 		
-		//Console.WriteLine(operation); Debug to see if the operation was recieved
+		//Console.WriteLine(operation); //Debug to see if the operation was recieved
 		
 		//Getting the numbers for the operand
 		Console.WriteLine("Enter numbers seperated by commas: ");
@@ -55,7 +61,7 @@
             return;
         }
 		
-		//Console.WriteLine(numbers[1]); Debug to see if the numbers were recieved and converted
+		//Console.WriteLine(numbers[1]); //Debug to see if the numbers were recieved and converted
 		
 		double result = 0.0; //I think this needs a number so that the compiler knows that if it doesnt get a number it can print something. 
 		
@@ -154,10 +160,29 @@
 				}
 				result = new Random().NextDouble() * (numbers[0] - numbers[1]) + numbers[1];
 				break;
+			case "cos":
+				if(numbers.Length >= 2)
+                {
+                    //Check for 2 or more numbers
+					Console.WriteLine("Can only Cos one number at a time.");
+                    return;
+                }
+				result = Math.Cos(numbers[0] * Math.PI / 180.0f);
+				break;
+			case "tan":
+				if(numbers.Length >= 2)
+                {
+                    //Check for 2 or more numbers
+					Console.WriteLine("Can only Tan one number at a time.");
+                    return;
+                }
+				
+				result = Math.Tan(numbers[0] * Math.PI / 180.0f);
+				break;
 			default:
 				//Default if the input is not a supported operand. This can't really get called as we check the operand after it gets entered.
 				Console.WriteLine("Not a supported operation");
-				Console.WriteLine("If you see this create a bug report on GitHub");
+				Console.WriteLine("If you see this create a bug report on GitHub and tell me how you got here");
 				return;
 		}
 	
@@ -165,4 +190,3 @@
 		Console.WriteLine("Result: " + result);
 	}
 }
-
